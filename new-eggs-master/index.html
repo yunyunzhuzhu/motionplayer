@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Face tracker</title>
+    <meta charset="utf-8">
+    <link href="./styles/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="./styles/main.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript">
+
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-32642923-1']);
+        _gaq.push(['_trackPageview']);
+
+        (function () {
+            var ga = document.createElement('script');
+            ga.type = 'text/javascript';
+            ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'https://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(ga, s);
+        })();
+
+    </script>
+</head>
+<body>
+<div style="display: none;">
+    <p id="angry"></p>
+    <p id="sad"></p>
+    <p id="surprised"></p>
+    <p id="happy"></p>
+    <p id="start"></p>
+</div>
+<div id="main" style="width: 1200px">
+    <div id="content" style="float: left;">
+        <div id="container">
+            <video id="videoel" width="400" height="300" preload="auto" loop playsinline autoplay>
+            </video>
+            <canvas id="overlay" width="400" height="300"></canvas>
+        </div>
+        <div id="emotion_container">
+            <div id="emotion_icons">
+                <img class="emotion_icon" id="icon1" src="./media/icon_angry.png">
+                <img class="emotion_icon" id="icon2" src="./media/icon_sad.png">
+                <img class="emotion_icon" id="icon3" src="./media/icon_surprised.png">
+                <img class="emotion_icon" id="icon4" src="./media/icon_happy.png">
+            </div>
+            <div id='emotion_chart'></div>
+        </div>
+        <div id="controls">
+            <input class="btn" type="button" value="wait, loading video" disabled="disabled" onclick="startVideo()"
+                   id="startbutton"></input>
+        </div>
+    </div>
+    <div style=" width: 60%; float: left;">
+        <iframe frameBorder="0" src="/eggs/sketch/game.html" scrolling="no" width="800" height="800"></iframe>
+    </div>
+</div>
+
+</body>
+<script src="/eggs/js/libs/utils.js"></script>
+<script src="/eggs/build/clmtrackr.js"></script>
+<script src="/eggs/models/model_pca_20_svm.js"></script>
+<script src="/eggs/js/libs/Stats.js"></script>
+<script src="/eggs/js/libs/d3.min.js"></script>
+<script src="/eggs/js/emotion_classifier.js"></script>
+<script src="/eggs/js/emotionmodel.js"></script>
+<script src="/eggs/js/main.js"></script>
+</html>
